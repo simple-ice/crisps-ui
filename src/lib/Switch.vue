@@ -46,7 +46,8 @@ button {
         width: $h2;
         background: white;
         border-radius: $h2 / 2;
-        transition: left 250ms;
+        transition: all 250ms;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
 
     &.checked {
@@ -55,6 +56,19 @@ button {
 
     &.checked>span {
         left: calc(100% - #{$h2} - 2px);
+    }
+
+    &:active {
+        >span {
+            width: $h2 + 4px;
+        }
+    }
+
+    &.checked:active {
+        >span {
+            width: $h2 + 4px;
+            margin-left: -4px;
+        }
     }
 }
 </style>
