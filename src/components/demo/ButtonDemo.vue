@@ -2,10 +2,10 @@
 <div>Button 组件</div>
 <h1>示例1</h1>
 <div>
-    <Button>这是一个button</Button>
+    <Button>Default</Button>
     <Button theme="button">这是一个button</Button>
-    <Button theme="link">这是一个button</Button>
-    <Button theme="text">这是一个button</Button>
+    <Button theme="link">Link Button</Button>
+    <Button theme="text">Text Button</Button>
 </div>
 </template>
 
