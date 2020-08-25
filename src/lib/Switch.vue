@@ -1,5 +1,5 @@
 <template>
-<button @click="toggle" :class="{ checked: value }"><span></span></button>
+<button class="crisps-switch" @click="toggle" :class="{ 'crisps-checked': value }"><span></span></button>
 </template>
 
 <script>
@@ -21,11 +21,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
 
-button {
+.crisps-switch {
     height: $h;
     width: $h * 2;
     border: none;
@@ -50,11 +50,11 @@ button {
         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
 
-    &.checked {
+    &.crisps-checked {
         background: #027be3;
     }
 
-    &.checked>span {
+    &.crisps-checked>span {
         left: calc(100% - #{$h2} - 2px);
     }
 
@@ -64,7 +64,7 @@ button {
         }
     }
 
-    &.checked:active {
+    &.crisps-checked:active {
         >span {
             width: $h2 + 4px;
             margin-left: -4px;
