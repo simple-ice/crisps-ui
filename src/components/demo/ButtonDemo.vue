@@ -14,14 +14,14 @@
     <Button size="small">Small Button</Button>
 </div>
 <div>
-    <Button size="big" theme="link">Big Button</Button>
-    <Button theme="link">Normal Button</Button>
-    <Button size="small" theme="link">Small Button</Button>
+    <Button size="big" theme="link">Big Link</Button>
+    <Button theme="link">Normal Link</Button>
+    <Button size="small" theme="link">Small Link</Button>
 </div>
 <div>
-    <Button size="big" theme="text">Big Button</Button>
-    <Button theme="text">Normal Button</Button>
-    <Button size="small" theme="text">Small Button</Button>
+    <Button size="big" theme="text">Big text</Button>
+    <Button theme="text">Normal text</Button>
+    <Button size="small" theme="text">Small text</Button>
 </div>
 <h1>示例3</h1>
 <div>
@@ -43,8 +43,13 @@
 </div>
 <h1>示例4</h1>
 <Button disabled>Disabled</Button>
-<Button theme="link" disabled>Disabled</Button>
-<Button theme="text" disabled>Disabled</Button>
+<Button theme="link" disabled>Disabled link</Button>
+<Button theme="text" disabled>Disabled text</Button>
+<h1>示例5</h1>
+<div>
+    <Button loading>Loading</Button>
+    <Button>Done</Button>
+</div>
 </template>
 
 <script lang="ts">
