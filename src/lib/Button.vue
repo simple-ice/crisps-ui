@@ -17,17 +17,23 @@ export default {
         size: {
             type: String,
             default: 'normal'
+        },
+        level: {
+            type: String,
+            default: 'normal'
         }
     },
     setup(props) {
         const {
             theme,
-            size
+            size,
+            level
         } = props;
         const classes = computed(() => {
             return {
                 [`crisps-theme-${theme}`]: theme,
-                [`crisps-size-${size}`]: size
+                [`crisps-size-${size}`]: size,
+                [`crisps-level-${level}`]: level
             }
         })
         return {
@@ -43,6 +49,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: #ff4848;
 
 .crisps-button {
     box-sizing: border-box;
@@ -110,6 +117,63 @@ $radius: 4px;
         font-size: 12px;
         height: 20px;
         padding: 0 4px;
+    }
+
+    &.crisps-theme-button {
+        &.crisps-level-main {
+            background: $blue;
+            color: white;
+            border-color: $blue;
+
+            &:hover,
+            &:focus {
+                background: darken($blue, 10%);
+                border-color: darken($blue, 10%);
+            }
+        }
+
+        &.crisps-level-danger {
+            background: $red;
+            border-color: $red;
+            color: white;
+
+            &:hover,
+            &:focus {
+                background: darken($red, 10%);
+                border-color: darken($red, 10%);
+            }
+        }
+    }
+
+    &.crisps-theme-link {
+        &.crisps-level-danger {
+            color: $red;
+
+            &:hover,
+            &:focus {
+                color: darken($red, 10%);
+            }
+        }
+    }
+
+    &.crisps-theme-text {
+        &.crisps-level-main {
+            color: $blue;
+
+            &:hover,
+            &:focus {
+                color: darken($blue, 10%);
+            }
+        }
+
+        &.crisps-level-danger {
+            color: $red;
+
+            &:hover,
+            &:focus {
+                color: darken($red, 10%);
+            }
+        }
     }
 }
 </style>
