@@ -1,5 +1,5 @@
 <template>
-<button class="crisps-button" :class="classes">
+<button class="crisps-button" :class="classes" :disabled="disabled">
     <slot />
 </button>
 </template>
@@ -21,6 +21,10 @@ export default {
         level: {
             type: String,
             default: 'normal'
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     setup(props) {
@@ -50,6 +54,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: #ff4848;
+$grey: #a3a3a3;
 
 .crisps-button {
     box-sizing: border-box;
@@ -173,6 +178,26 @@ $red: #ff4848;
             &:focus {
                 color: darken($red, 10%);
             }
+        }
+    }
+
+    &.crisps-theme-button {
+        &[disabled] {
+            cursor: not-allowed;
+            color: $grey;
+            background: #dbdbdb;
+
+            &:hover {
+                border-color: $grey;
+            }
+        }
+    }
+
+    &.crisps-theme-link,
+    &.crisps-theme-text {
+        &[disabled] {
+            cursor: not-allowed;
+            color: $grey;
         }
     }
 }
