@@ -2,7 +2,7 @@
 <div>Dialog 示例</div>
 <h1>示例1</h1>
 <Button @click="toggle">toggle</Button>
-<Dialog :visible="isVisible"></Dialog>
+<Dialog :ok="clickOk" :cancel="clickCancel" :maskClosable="true" v-model:visible="isVisible"></Dialog>
 </template>
 
 <script lang="ts">
@@ -21,10 +21,19 @@ export default {
         const toggle = () => {
             isVisible.value = !isVisible.value
         }
+        const clickOk = () => {
+            return true
+        }
+        const clickCancel = () => {
+            return true
+        }
         return {
             isVisible,
-            toggle
+            toggle,
+            clickOk,
+            clickCancel
         }
+
     }
 };
 </script>
