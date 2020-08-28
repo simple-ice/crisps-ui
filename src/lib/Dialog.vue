@@ -1,21 +1,23 @@
 <template>
 <template v-if="visible">
-    <div class="crisps-dialog-overlay" @click="onClickMask"></div>
-    <div class="crisps-dialog-wrapper">
-        <div class="crisps-dialog">
-            <header>
-                <slot name="title" />
-                <span @click="close" class="crisps-dialog-close"></span>
-            </header>
-            <main>
-                <slot name="content" />
-            </main>
-            <footer>
-                <Button @click="cancel">Cancel</Button>
-                <Button @click="ok" level="main">OK</Button>
-            </footer>
+    <Teleport to="body">
+        <div class="crisps-dialog-overlay" @click="onClickMask"></div>
+        <div class="crisps-dialog-wrapper">
+            <div class="crisps-dialog">
+                <header>
+                    <slot name="title" />
+                    <span @click="close" class="crisps-dialog-close"></span>
+                </header>
+                <main>
+                    <slot name="content" />
+                </main>
+                <footer>
+                    <Button @click="cancel">Cancel</Button>
+                    <Button @click="ok" level="main">OK</Button>
+                </footer>
+            </div>
         </div>
-    </div>
+    </Teleport>
 </template>
 </template>
 
