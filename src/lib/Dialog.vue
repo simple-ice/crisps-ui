@@ -4,11 +4,11 @@
     <div class="crisps-dialog-wrapper">
         <div class="crisps-dialog">
             <header>
-                对话框标题 <span @click="close" class="crisps-dialog-close"></span>
+                <slot name="title" />
+                <span @click="close" class="crisps-dialog-close"></span>
             </header>
             <main>
-                <p>第一行内容</p>
-                <p>第二行内容</p>
+                <slot name="content" />
             </main>
             <footer>
                 <Button @click="cancel">Cancel</Button>
@@ -35,11 +35,11 @@ export default {
             default: true,
         },
         ok: {
-            type: Function
+            type: Function,
         },
         cancel: {
-            type: Function
-        }
+            type: Function,
+        },
     },
     components: {
         Button,
@@ -55,12 +55,12 @@ export default {
         };
         const ok = () => {
             if (props.ok?.() !== false) {
-                close()
+                close();
             }
         };
         const cancel = () => {
             if (props.cancel?.() !== false) {
-                close()
+                close();
             }
         };
         return {
