@@ -11,6 +11,8 @@
         <div>好吃！</div>
     </template>
 </Dialog>
+<h1>示例2</h1>
+<Button @click="showDialog">toggle</Button>
 </template>
 
 <script lang="ts">
@@ -19,6 +21,9 @@ import Button from "../../lib/Button.vue";
 import {
     ref
 } from "vue";
+import {
+    openDialog
+} from '../../lib/openDialog'
 export default {
     components: {
         Dialog,
@@ -33,13 +38,27 @@ export default {
             return true;
         };
         const clickCancel = () => {
-            return true;
+
         };
+        const showDialog = () => {
+            openDialog({
+                title: '标题',
+                content: '这是一段内容',
+                maskClosable: false,
+                ok() {
+                    console.log('ok')
+                },
+                cancel() {
+                    console.log('cancel')
+                }
+            })
+        }
         return {
             isVisible,
             toggle,
             clickOk,
             clickCancel,
+            showDialog
         };
     },
 };
