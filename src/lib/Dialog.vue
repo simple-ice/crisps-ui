@@ -1,23 +1,31 @@
 <template>
-<div class="crisps-dialog-overlay"></div>
-<div class="crisps-dialog-wrapper">
-    <div class="crisps-dialog">
-        <header>标题</header>
-        <main>
-            <p>第一行内容</p>
-            <p>第二行内容</p>
-        </main>
-        <footer>
-            <Button>Cancel</Button>
-            <Button>OK</Button>
-        </footer>
+<template v-if="visible">
+    <div class="crisps-dialog-overlay"></div>
+    <div class="crisps-dialog-wrapper">
+        <div class="crisps-dialog">
+            <header>对话框标题 <span class="crisps-dialog-close"></span></header>
+            <main>
+                <p>第一行内容</p>
+                <p>第二行内容</p>
+            </main>
+            <footer>
+                <Button>Cancel</Button>
+                <Button level="main">OK</Button>
+            </footer>
+        </div>
     </div>
-</div>
+</template>
 </template>
 
 <script lang="ts">
 import Button from "./Button.vue";
 export default {
+    props: {
+        visible: {
+            type: Boolean,
+            default: false,
+        },
+    },
     components: {
         Button,
     },
