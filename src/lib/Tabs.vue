@@ -3,7 +3,7 @@
     <div class="crisps-tabs-nav" ref="container">
         <div class="crisps-tabs-nav-item" @click="select(t)" :class="{ selected: t === value }" v-for="(t, index) in titles" :key="index" :ref="
           (el) => {
-            if (el) navItems[index] = el;
+            if (t === value) selectedItem = el;
           }
         ">
             {{ t }}
@@ -19,9 +19,9 @@
 <script lang="ts">
 import {
     computed,
+    ref,
     onMounted,
-    onUpdated,
-    ref
+    watchEffect
 } from "vue";
 import Tab from "./Tab.vue";
 export default {
@@ -31,27 +31,25 @@ export default {
         },
     },
     setup(props, context) {
-        const navItems = ref < HTMLDivElement[] > ([]);
+        const selectedItem = ref < HTMLDivElement > (null);
         const indicator = ref < HTMLDivElement > (null);
         const container = ref < HTMLDivElement > (null);
-        const x = () => {
-            const divs = navItems.value;
-            const result = divs.find((div) => div.classList.contains("selected"));
-            const {
-                width
-            } = result.getBoundingClientRect();
-            indicator.value.style.width = width + "px";
-            const {
-                left: containerLeft
-            } = container.value.getBoundingClientRect();
-            const {
-                left: resultLeft
-            } = result.getBoundingClientRect();
-            const left = resultLeft - containerLeft
-            indicator.value.style.left = left + 'px'
-        }
-        onMounted(x);
-        onUpdated(x);
+        onMounted(() => {
+            watchEffect(() => {
+                const {
+                    width
+                } = selectedItem.value.getBoundingClientRect();
+                indicator.value.style.width = width + "px";
+                const {
+                    left: containerLeft
+                } = container.value.getBoundingClientRect();
+                const {
+                    left: resultLeft
+                } = selectedItem.value.getBoundingClientRect();
+                const left = resultLeft - containerLeft;
+                indicator.value.style.left = left + "px";
+            });
+        });
 
         const defaults = context.slots.default();
         defaults.forEach((tab) => {
@@ -74,7 +72,7 @@ export default {
             titles,
             current,
             select,
-            navItems,
+            selectedItem,
             indicator,
             container,
         };
