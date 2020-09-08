@@ -1,6 +1,6 @@
 <template>
 <button class="crisps-button" :class="classes" :disabled="disabled">
-    <span v-if="loading" class="crisps-loadingIndicator"></span>
+    <span v-if="loading" class="crisps-button-loadingIndicator"></span>
     <slot />
 </button>
 </template>
@@ -40,9 +40,9 @@ export default {
         } = props;
         const classes = computed(() => {
             return {
-                [`crisps-theme-${theme}`]: theme,
-                [`crisps-size-${size}`]: size,
-                [`crisps-level-${level}`]: level
+                [`crisps-button-theme-${theme}`]: theme,
+                [`crisps-button-size-${size}`]: size,
+                [`crisps-button-level-${level}`]: level
             }
         })
         return {
@@ -95,7 +95,7 @@ $grey: #a3a3a3;
         border: 0;
     }
 
-    &.crisps-theme-link {
+    &.crisps-button-theme-link {
         border-color: transparent;
         box-shadow: none;
         color: $blue;
@@ -106,7 +106,7 @@ $grey: #a3a3a3;
         }
     }
 
-    &.crisps-theme-text {
+    &.crisps-button-theme-text {
         border-color: transparent;
         box-shadow: none;
         color: inherit;
@@ -117,20 +117,20 @@ $grey: #a3a3a3;
         }
     }
 
-    &.crisps-size-big {
+    &.crisps-button-size-big {
         font-size: 24px;
         height: 48px;
         padding: 0 16px;
     }
 
-    &.crisps-size-small {
+    &.crisps-button-size-small {
         font-size: 12px;
         height: 20px;
         padding: 0 4px;
     }
 
-    &.crisps-theme-button {
-        &.crisps-level-main {
+    &.crisps-button-theme-button {
+        &.crisps-button-level-main {
             background: $blue;
             color: white;
             border-color: $blue;
@@ -142,7 +142,7 @@ $grey: #a3a3a3;
             }
         }
 
-        &.crisps-level-danger {
+        &.crisps-button-level-danger {
             background: $red;
             border-color: $red;
             color: white;
@@ -155,8 +155,8 @@ $grey: #a3a3a3;
         }
     }
 
-    &.crisps-theme-link {
-        &.crisps-level-danger {
+    &.crisps-button-theme-link {
+        &.crisps-button-level-danger {
             color: $red;
 
             &:hover,
@@ -166,8 +166,8 @@ $grey: #a3a3a3;
         }
     }
 
-    &.crisps-theme-text {
-        &.crisps-level-main {
+    &.crisps-button-theme-text {
+        &.crisps-button-level-main {
             color: $blue;
 
             &:hover,
@@ -176,7 +176,7 @@ $grey: #a3a3a3;
             }
         }
 
-        &.crisps-level-danger {
+        &.crisps-button-level-danger {
             color: $red;
 
             &:hover,
@@ -186,7 +186,7 @@ $grey: #a3a3a3;
         }
     }
 
-    &.crisps-theme-button {
+    &.crisps-button-theme-button {
         &[disabled] {
             cursor: not-allowed;
             color: $grey;
@@ -198,15 +198,15 @@ $grey: #a3a3a3;
         }
     }
 
-    &.crisps-theme-link,
-    &.crisps-theme-text {
+    &.crisps-button-theme-link,
+    &.crisps-button-theme-text {
         &[disabled] {
             cursor: not-allowed;
             color: $grey;
         }
     }
 
-    >.crisps-loadingIndicator {
+    >.crisps-button-loadingIndicator {
         width: 14px;
         height: 14px;
         display: inline-block;
@@ -215,11 +215,11 @@ $grey: #a3a3a3;
         border-color: $blue $blue $blue transparent;
         border-style: solid;
         border-width: 2px;
-        animation: crisps-spin 1s infinite linear;
+        animation: crisps-button-spin 1s infinite linear;
     }
 }
 
-@keyframes crisps-spin {
+@keyframes crisps-button-spin {
     0% {
         transform: rotate(0deg)
     }
