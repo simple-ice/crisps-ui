@@ -1,5 +1,5 @@
 <template>
-<button class="crisps-switch" @click="toggle" :class="classes">
+<button class="crisps-switch" @click="toggle" :class="classes" :disabled="disabled">
     <span></span>
 </button>
 </template>
@@ -19,6 +19,10 @@ export default {
             type: String,
             default: "normal",
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        }
     },
     setup(props, context) {
         const toggle = () => {
@@ -29,11 +33,13 @@ export default {
         const classes = computed(() => {
             const {
                 value,
-                size
+                size,
+                disabled
             } = props;
             return {
                 ["crisps-switch-checked"]: value,
                 [`crisps-switch-size-${size}`]: size,
+                [`crisps-switch-disabled`]: disabled,
             };
         });
         return {
@@ -56,6 +62,14 @@ $h2: $h - 4px;
     border-radius: $h/2;
     position: relative;
     transition: background 250ms;
+
+    &.crisps-switch-disabled {
+        background: #e8e8e8;
+
+        >span {
+            background: #ffffff;
+        }
+    }
 
     &:focus {
         outline: none;

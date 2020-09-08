@@ -14,6 +14,12 @@
             <Switch v-model:value="bool4" size="small" />
         </div>
     </div>
+    <div>
+        <h3>不可用状态</h3>
+        <div>
+            <Switch v-model:value="bool5" disabled/>
+        </div>
+    </div>
 </div>
 </template>
 
@@ -31,11 +37,13 @@ export default {
         const bool2 = ref(false);
         const bool3 = ref(false);
         const bool4 = ref(false);
+        const bool5 = ref(false);
         return {
             bool1,
             bool2,
             bool3,
             bool4,
+            bool5,
         };
     },
 };
