@@ -1,10 +1,14 @@
 <template>
 <div class="crisps-tabs">
-    <div class="crisps-tabs-nav">
-        <div class="crisps-tabs-nav-item" @click="select(t)" :class="{ selected: t === value }" v-for="(t, index) in titles" :key="index">
+    <div class="crisps-tabs-nav" ref="container">
+        <div class="crisps-tabs-nav-item" @click="select(t)" :class="{ selected: t === value }" v-for="(t, index) in titles" :key="index" :ref="
+          (el) => {
+            if (el) navItems[index] = el;
+          }
+        ">
             {{ t }}
         </div>
-        <div class="crisps-tabs-nav-indicator"></div>
+        <div class="crisps-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="crisps-tabs-content">
         <component class="crisps-tabs-content-item" :is="current" :key="current.props.title" />
@@ -14,7 +18,10 @@
 
 <script lang="ts">
 import {
-    computed
+    computed,
+    onMounted,
+    onUpdated,
+    ref
 } from "vue";
 import Tab from "./Tab.vue";
 export default {
@@ -24,6 +31,28 @@ export default {
         },
     },
     setup(props, context) {
+        const navItems = ref < HTMLDivElement[] > ([]);
+        const indicator = ref < HTMLDivElement > (null);
+        const container = ref < HTMLDivElement > (null);
+        const x = () => {
+            const divs = navItems.value;
+            const result = divs.find((div) => div.classList.contains("selected"));
+            const {
+                width
+            } = result.getBoundingClientRect();
+            indicator.value.style.width = width + "px";
+            const {
+                left: containerLeft
+            } = container.value.getBoundingClientRect();
+            const {
+                left: resultLeft
+            } = result.getBoundingClientRect();
+            const left = resultLeft - containerLeft
+            indicator.value.style.left = left + 'px'
+        }
+        onMounted(x);
+        onUpdated(x);
+
         const defaults = context.slots.default();
         defaults.forEach((tab) => {
             if (tab.type !== Tab) {
@@ -45,6 +74,9 @@ export default {
             titles,
             current,
             select,
+            navItems,
+            indicator,
+            container,
         };
     },
 };
@@ -83,6 +115,7 @@ $border-color: #d9d9d9;
             left: 0;
             bottom: -1px;
             width: 100px;
+            transition: left 250ms, width 250ms;
         }
     }
 
