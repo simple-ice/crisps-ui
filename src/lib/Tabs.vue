@@ -1,12 +1,15 @@
 <template>
 <div class="crisps-tabs">
     <div class="crisps-tabs-nav" ref="container">
-        <div class="crisps-tabs-nav-item" @click="select(t)" :class="{ selected: t === value }" v-for="(t, index) in titles" :key="index" :ref="
+        <div class="crisps-tabs-nav-item" @click="select(t)" :class="{
+          selected: t.title === value,
+          'crisps-tabs-nav-disabled': t.disabled,
+        }" v-for="(t, index) in titles" :key="index" :ref="
           (el) => {
-            if (t === value) selectedItem = el;
+            if (t.title === value) selectedItem = el;
           }
         ">
-            {{ t }}
+            {{ t.title }}
         </div>
         <div class="crisps-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -57,16 +60,30 @@ export default {
                 throw new Error("Tabs 子标签必须为 Tab");
             }
         });
-
         const titles = defaults.map((tab) => {
-            return tab.props.title;
+            if (tab.props.disabled || tab.props.disabled === "") {
+                return {
+                    title: tab.props.title,
+                    disabled: true,
+                };
+            } else {
+                return {
+                    title: tab.props.title,
+                    disabled: false,
+                };
+            }
         });
-        const select = (title: string) => {
-            context.emit("update:value", title);
+        const select = (t: {
+            title: string;disabled: boolean
+        }) => {
+            if (!t.disabled) {
+                context.emit("update:value", t.title);
+            }
         };
         const current = computed(() => {
             return defaults.find((tab) => tab.props.title === props.value);
         });
+
         return {
             defaults,
             titles,
@@ -103,6 +120,10 @@ $border-color: #d9d9d9;
 
             &.selected {
                 color: $blue;
+            }
+
+            &.crisps-tabs-nav-disabled {
+                color: #ccc;
             }
         }
 
