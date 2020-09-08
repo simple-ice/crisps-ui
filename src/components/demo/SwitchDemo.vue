@@ -1,6 +1,19 @@
 <template>
 <div>
-    <Switch v-model:value="bool" />
+    <h1>Switch 开关</h1>
+    <h2>示例</h2>
+    <div>
+        <h3>基本</h3>
+        <Switch v-model:value="bool1" />
+    </div>
+    <div>
+        <h3>尺寸</h3>
+        <div>
+            <Switch v-model:value="bool2" size="big" />
+            <Switch v-model:value="bool3" />
+            <Switch v-model:value="bool4" size="small" />
+        </div>
+    </div>
 </div>
 </template>
 
@@ -8,16 +21,22 @@
 import Switch from "../../lib/Switch.vue";
 import {
     ref
-} from 'vue';
+} from "vue";
 export default {
     components: {
         Switch,
     },
     setup() {
-        const bool = ref(false)
+        const bool1 = ref(false);
+        const bool2 = ref(false);
+        const bool3 = ref(false);
+        const bool4 = ref(false);
         return {
-            bool
-        }
-    }
+            bool1,
+            bool2,
+            bool3,
+            bool4,
+        };
+    },
 };
 </script>
