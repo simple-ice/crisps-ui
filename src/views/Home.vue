@@ -23,6 +23,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$bg-pink: #f9bfaf;
+$font-color: #bc654c;
+$border-radius: 8px;
+
 .banner {
     padding: 100px 0;
     display: flex;
@@ -35,13 +39,15 @@ export default {
 
         a {
             margin: 0 8px;
-            background: #fff;
+            background: $bg-pink;
             display: inline-block;
-            $h: 28px;
-            height: $h;
-            line-height: $h;
-            border-radius: $h/2;
-            padding: 0 8px;
+            color: $font-color;
+            padding: 8px 24px;
+            border-radius: $border-radius;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }
