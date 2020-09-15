@@ -1,13 +1,26 @@
 <template>
-<div class="topnavAndBanner">
-    <Topnav />
-    <div class="banner">
-        <h1>薯片UI</h1>
-        <h2>一个普普通通的 UI 框架</h2>
-        <p class="actions">
-            <a href="https://github.com/simple-ice/crisps-ui">GitHub</a>
-            <router-link to="/doc">开始</router-link>
-        </p>
+<div>
+    <div class="topnavAndBanner">
+        <Topnav />
+        <div class="banner">
+            <h1>薯片UI</h1>
+            <h2>一个普普通通的 UI 框架</h2>
+            <p class="actions">
+                <a href="https://github.com/simple-ice/crisps-ui">GitHub</a>
+                <router-link to="/doc">开始</router-link>
+            </p>
+        </div>
+    </div>
+    <div class="features">
+        <svg class="icon">
+            <use xlink:href="#icon-vuejs-line1"></use>
+        </svg>
+        <svg class="icon">
+            <use xlink:href="#icon-ts1"></use>
+        </svg>
+        <svg class="icon">
+            <use xlink:href="#icon-light"></use>
+        </svg>
     </div>
 </div>
 </template>
@@ -26,6 +39,13 @@ export default {
 $bg-pink: #f9bfaf;
 $font-color: #bc654c;
 $border-radius: 8px;
+
+.features {
+    >svg {
+        width: 64px;
+        height: 64px;
+    }
+}
 
 .banner {
     padding: 100px 0;

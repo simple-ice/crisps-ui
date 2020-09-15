@@ -27,3 +27,10 @@ body {
   rgba(241, 241, 240, 1) 0%,
   rgba(232, 231, 230, 1) 100%);
 }
+//默认图标样式
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
