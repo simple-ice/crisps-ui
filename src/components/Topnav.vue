@@ -7,8 +7,9 @@
             </svg>
         </div>
         <ul class="menu">
-            <li>菜单1</li>
-            <li>菜单2</li>
+            <li>
+                <router-link to="/doc">文档</router-link>
+            </li>
         </ul>
         <span @click="toggleAside" class="toggleAside"></span>
     </div>
