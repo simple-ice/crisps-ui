@@ -56,9 +56,7 @@ $font-color: #bc654c;
 $border-radius: 8px;
 
 .homeWrap {
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .features {
@@ -102,6 +100,10 @@ $border-radius: 8px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    @media (max-width: 896px) {
+        padding-top: 50px + (2.2 * 16px);
+    }
 
     >.actions {
         padding: 8px 0;

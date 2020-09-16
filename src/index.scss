@@ -19,6 +19,8 @@ h1,h2,h3,h4,h5,h6{
   font-weight: normal;
 }
 body {
+  width: 100%;
+  height: 100%;
   font-size: 16px;
   line-height: 1.5;
   color: #264065;
@@ -26,7 +28,6 @@ body {
   background: linear-gradient(102deg,
   rgba(241, 241, 240, 1) 0%,
   rgba(232, 231, 230, 1) 100%);
-  overflow: hidden;
 }
 //默认图标样式
 .icon {

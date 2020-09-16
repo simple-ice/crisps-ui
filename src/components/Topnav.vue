@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="topnav">
+    <div class="topnav" ref="topnav">
         <router-link to="/" class="logo">
             <svg class="icon">
                 <use xlink:href="#icon-food-crisps"></use>
@@ -21,22 +21,42 @@
 <script lang="ts">
 import {
     inject,
-    Ref
+    Ref,
+    onMounted,
+    onUnmounted,
+    ref,
+    watchEffect
 } from "vue";
 export default {
     props: {
         toggleMenuVisible: {
             type: Boolean,
-            default: false
-        }
+            default: false,
+        },
     },
     setup() {
         const asideVisible = inject < Ref < boolean >> ("asideVisible");
+        const topnav = ref < HTMLDivElement > (null);
         const toggleMenu = () => {
             asideVisible.value = !asideVisible.value;
         };
+        const handleScroll = () => {
+            if (window.scrollY > topnav.value.offsetHeight) {
+                topnav.value.style.top = '0'
+                topnav.value.style.left = '0'
+            } else if (window.scrollY === 0) {
+
+            }
+        };
+        onMounted(() => {
+            window.addEventListener("scroll", handleScroll);
+        });
+        onUnmounted(() => {
+            window.removeEventListener("scroll", handleScroll);
+        });
         return {
-            toggleMenu
+            toggleMenu,
+            topnav
         };
     },
 };
@@ -46,8 +66,6 @@ export default {
 .topnav {
     display: flex;
     padding: 16px;
-    position: sticky;
-    top: 0px;
     width: 100%;
 
     justify-content: center;
@@ -60,6 +78,24 @@ export default {
         >svg {
             width: 48px;
             height: 48px;
+        }
+
+    }
+
+    @media (max-width: 896px) {
+        padding: 0;
+        padding-top: 5px;
+        position: fixed;
+        background-color: #edeceb;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+        z-index: 10;
+
+        >.logo {
+
+            >svg {
+                width: 2.2em;
+                height: 2.2em;
+            }
         }
     }
 

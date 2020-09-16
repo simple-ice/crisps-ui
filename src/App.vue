@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 .leftBox {
     z-index: -1;
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 500px;
@@ -47,7 +47,7 @@ export default {
 }
 
 .rigftBox {
-    position: absolute;
+    position: fixed;
     right: 10vw;
     bottom: 0;
     transform: translateY(50%);
