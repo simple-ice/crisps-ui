@@ -36,10 +36,7 @@
             </li>
         </ul>
     </div>
-    <span class="leftBox"></span>
-    <span class="rigftBox">
-        <span></span>
-    </span>
+
 </div>
 </template>
 
@@ -59,90 +56,48 @@ $font-color: #bc654c;
 $border-radius: 8px;
 
 .homeWrap {
-    .leftBox {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 500px;
-        height: 500px;
-        background-image: url('/src/assets/imgbox.png');
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-
-    .rigftBox {
-        position: absolute;
-        right: 100px;
-        bottom: 0;
-        transform: translateY(50%);
-        min-width: 300px;
-        min-height: 300px;
-        background: transparent;
-        border: 3px solid #fcbdab;
-        border-radius: 50%;
-
-        >span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            background: #c05d38;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-
-        }
-    }
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 .features {
-    margin: 64px auto;
-    width: 400px;
-
-    @media (min-width: 896px) {
-        width: 800px;
-    }
-
-    @media (min-width: 1200px) {
-        width: 1200px;
-    }
+    margin: 32px auto 100px;
+    padding: 0 30px;
 
     >ul {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
 
         >li {
-            width: 400px;
             margin: 16px 0;
-            display: grid;
-            justify-content: start;
-            align-content: space-between;
-            grid-template-areas:
-                "icon title"
-                "icon text";
-            grid-template-columns: 80px auto;
-            grid-template-rows: 1fr auto;
+            display: flex;
+            width: 300px;
+            padding: 0 40px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
             >svg {
-                grid-area: icon;
                 width: 64px;
                 height: 64px;
             }
 
             >h3 {
-                grid-area: title;
-                font-size: 28px;
+                font-size: 1.5em;
             }
 
             >p {
-                grid-area: text
+                text-align: center;
+                font-size: 14px;
             }
         }
     }
 }
 
 .banner {
-    padding: 100px 0;
+    padding: 50px 0;
     display: flex;
     justify-content: center;
     align-items: center;

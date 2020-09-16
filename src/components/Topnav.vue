@@ -1,11 +1,11 @@
 <template>
 <div>
     <div class="topnav">
-        <div class="logo">
+        <router-link to="/" class="logo">
             <svg class="icon">
                 <use xlink:href="#icon-food-crisps"></use>
             </svg>
-        </div>
+        </router-link>
         <ul class="menu">
             <li>
                 <router-link to="/doc">文档</router-link>
@@ -36,7 +36,7 @@ export default {
             asideVisible.value = !asideVisible.value;
         };
         return {
-            toggleMenu,
+            toggleMenu
         };
     },
 };
@@ -46,11 +46,10 @@ export default {
 .topnav {
     display: flex;
     padding: 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: sticky;
+    top: 0px;
     width: 100%;
-    z-index: 10;
+
     justify-content: center;
     align-items: center;
 
