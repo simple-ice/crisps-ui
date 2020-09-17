@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="topnav" ref="topnav">
-        <router-link to="/" class="logo">
+        <router-link ref="topLogo" to="/" class="logo">
             <svg class="icon">
                 <use xlink:href="#icon-food-crisps"></use>
             </svg>
@@ -41,12 +41,7 @@ export default {
             asideVisible.value = !asideVisible.value;
         };
         const handleScroll = () => {
-            if (window.scrollY > topnav.value.offsetHeight) {
-                topnav.value.style.top = '0'
-                topnav.value.style.left = '0'
-            } else if (window.scrollY === 0) {
 
-            }
         };
         onMounted(() => {
             window.addEventListener("scroll", handleScroll);
@@ -83,21 +78,6 @@ export default {
 
     }
 
-    @media (max-width: 896px) {
-        padding: 0;
-        padding-top: 5px;
-        background-color: #edeceb;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-
-        >.logo {
-
-            >svg {
-                width: 2.2em;
-                height: 2.2em;
-            }
-        }
-    }
-
     >.menu {
         display: flex;
         white-space: nowrap;
@@ -122,12 +102,22 @@ export default {
     }
 
     @media (max-width: 896px) {
+        padding: 0;
+        padding-top: 5px;
+        background-color: #edeceb;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+
         >.menu {
             display: none;
         }
 
         >.logo {
             margin: 0 auto;
+
+            >svg {
+                width: 2.2em;
+                height: 2.2em;
+            }
         }
 
         >.toggleAside {

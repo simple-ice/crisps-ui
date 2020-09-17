@@ -63,6 +63,10 @@ export default {
         height: 200px;
     }
 
+    @media (max-width: 600px) {
+        display: none;
+    }
+
 }
 
 .rigftBox {
@@ -80,6 +84,10 @@ export default {
     @media (max-width: 896px) {
         min-width: 100px;
         min-height: 100px;
+    }
+
+    @media (max-width: 600px) {
+        display: none;
     }
 
     >span {
