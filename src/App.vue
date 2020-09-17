@@ -1,4 +1,7 @@
 <template>
+<div class="docBtn">
+
+</div>
 <router-view />
 <span class="leftBox"></span>
 <span class="rigftBox"> <span></span>
@@ -28,6 +31,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.docBtn {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 377px;
+    height: 240px;
+    background-image: url("/src/assets/docBtn.png");
+    background-size: 377px 240px;
+    background-repeat: no-repeat;
+
+    @media (max-width: 896px) {
+        display: none;
+    }
+}
+
 .leftBox {
     z-index: -1;
     position: fixed;

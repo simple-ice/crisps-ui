@@ -67,9 +67,10 @@ export default {
     display: flex;
     padding: 16px;
     width: 100%;
-
     justify-content: center;
     align-items: center;
+    position: fixed;
+    z-index: 10;
 
     >.logo {
         max-width: 6em;
@@ -85,10 +86,8 @@ export default {
     @media (max-width: 896px) {
         padding: 0;
         padding-top: 5px;
-        position: fixed;
         background-color: #edeceb;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
-        z-index: 10;
 
         >.logo {
 
@@ -103,9 +102,11 @@ export default {
         display: flex;
         white-space: nowrap;
         flex-wrap: nowrap;
+        margin-right: 100px;
 
         >li {
             margin: 0 1em;
+            color: #b0462a;
         }
     }
 
