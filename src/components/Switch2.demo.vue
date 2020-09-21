@@ -1,9 +1,10 @@
+<demo>测试</demo>
 <template>
-<Switch v-model:value="bool1" size="big" />
-<br>
-<Switch v-model:value="bool2" />
-<br>
-<Switch v-model:value="bool3" size="small" />
+    <Switch v-model:value="bool1" size="big" />
+    <br />
+    <Switch v-model:value="bool2" />
+    <br />
+    <Switch v-model:value="bool3" size="small" />
 </template>
 
 <script lang="ts">

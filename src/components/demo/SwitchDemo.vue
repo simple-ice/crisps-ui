@@ -4,40 +4,37 @@
     <div class="demo">
         <h2>基本</h2>
         <div class="demo-component">
-            <Switch-1-demo />
+            <component :is="Switch1Demo" />
         </div>
         <div class="demo-actions">
             <Button>查看代码</Button>
         </div>
         <div class="demo-code">
-            <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            <pre>{{Switch1Demo.__sourceCode}}</pre>
         </div>
     </div>
     <div class="demo">
         <h2>尺寸</h2>
         <div class="demo-component">
-            <Switch-2-demo />
-        </div>
-
-        <div class="demo-actions">
-            <Button>查看代码</Button>
-        </div>
-        <div class="demo-code">
-            <pre>&lt;Switch v-model:value="bool" size="big" /&gt;</pre>
-            <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
-            <pre>&lt;Switch v-model:value="bool" size="small" /&gt;</pre>
-        </div>
-    </div>
-    <div class="demo">
-        <h2>不可用状态</h2>
-        <div class="demo-component">
-            <Switch-3-demo />
+            <component :is="Switch2Demo" />
         </div>
         <div class="demo-actions">
             <Button>查看代码</Button>
         </div>
         <div class="demo-code">
-            <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+            <pre>{{Switch2Demo.__sourceCode}}</pre>
+        </div>
+        <div class="demo">
+            <h2>不可用状态</h2>
+            <div class="demo-component">
+                <component :is="Switch3Demo" />
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>{{Switch3Demo.__sourceCode}}</pre>
+            </div>
         </div>
     </div>
 </div>
@@ -53,15 +50,14 @@ import {
 } from "vue";
 export default {
     components: {
-        Button,
-        Switch1Demo,
-        Switch2Demo,
-        Switch3Demo
+        Button
     },
     setup() {
 
         return {
-
+            Switch1Demo,
+            Switch2Demo,
+            Switch3Demo
         };
     },
 };
