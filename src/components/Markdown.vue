@@ -17,6 +17,7 @@ export default {
     },
     setup(props) {
         const content = ref < string > (null)
+        //import 为 异步加载 markdown 文件
         import(props.path).then(result => {
             content.value = result.default;
         })
