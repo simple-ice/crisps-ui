@@ -26,7 +26,6 @@ export default {
     },
     setup(props, context) {
         const toggle = () => {
-            console.log(111);
             context.emit("update:value", !props.value);
         };
 
