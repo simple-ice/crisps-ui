@@ -1,16 +1,16 @@
 <demo>
-不可用状态
+基本
 </demo>
 
 <template>
-    <Switch v-model:value="bool" disabled />
+<Switch v-model:value="bool" />
 </template>
 
 <script lang="ts">
 import {
     ref
 } from 'vue';
-import Switch from '../lib/Switch.vue';
+import Switch from '../../lib/Switch.vue';
 export default {
     components: {
         Switch
