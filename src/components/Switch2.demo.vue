@@ -1,4 +1,4 @@
-<demo>测试</demo>
+<demo>尺寸</demo>
 <template>
     <Switch v-model:value="bool1" size="big" />
     <br />
