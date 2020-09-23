@@ -34,7 +34,7 @@
                 </ol>
             </div>
         </aside>
-        <main>
+        <main @click="toggleAsideVisible">
             <router-view />
         </main>
     </div>
@@ -81,7 +81,11 @@ export default {
 
             return listenerPageWidth;
         };
-
+        const toggleAsideVisible = () => {
+            if (data.pageWidth <= 896) {
+                asideVisible.value = false;
+            }
+        }
         watchEffect(() => {
             if (data.pageWidth >= 896) {
                 asideVisible.value = true;
@@ -97,7 +101,8 @@ export default {
         })
 
         return {
-            asideVisible
+            asideVisible,
+            toggleAsideVisible
         };
     },
 };
@@ -123,7 +128,7 @@ $padding-spacing: 200px;
 
     >.content {
         flex-grow: 1;
-        padding: 85px 40px 0 340px;
+        padding: 0 40px 0 340px;
         display: flex;
 
         >aside {
@@ -179,6 +184,12 @@ $padding-spacing: 200px;
 
             >main {
                 background: $bgColor;
+            }
+        }
+
+        @media (max-width: 500px) {
+            >aside {
+                min-width: 50%;
             }
         }
     }
