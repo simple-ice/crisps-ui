@@ -1,3 +1,7 @@
+$fontColor: #264065;
+$bgColor: linear-gradient(102deg,
+rgba(241, 241, 240, 1) 0%,
+rgba(232, 231, 230, 1) 100%);
 * {
   margin: 0;
   padding: 0;
@@ -23,11 +27,9 @@ body {
   height: 100%;
   font-size: 16px;
   line-height: 1.5;
-  color: #264065;
+  color: $fontColor;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-  background: linear-gradient(102deg,
-  rgba(241, 241, 240, 1) 0%,
-  rgba(232, 231, 230, 1) 100%);
+  background: $bgColor;
 }
 //默认图标样式
 .icon {

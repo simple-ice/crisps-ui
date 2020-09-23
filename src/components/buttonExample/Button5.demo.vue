@@ -2,10 +2,8 @@
 加载中状态
 </demo>
 <template>
-<div>
     <Button loading>Loading</Button>
     <Button @click="onClick" :loading="isLoading">Click me</Button>
-</div>
 </template>
 
 <script lang="ts">
