@@ -64,12 +64,13 @@ export default {
     width: 100%;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: relative;
     z-index: 10;
 
     >.logo {
         max-width: 6em;
         margin-right: auto;
+        margin-left: 100px;
 
         >svg {
             width: 48px;
@@ -87,6 +88,10 @@ export default {
         >li {
             margin: 0 1em;
             color: #b0462a;
+
+            a {
+                font-size: 20px;
+            }
         }
     }
 
@@ -102,6 +107,7 @@ export default {
     }
 
     @media (max-width: 896px) {
+        position: fixed;
         padding: 0;
         padding-top: 5px;
         background-color: #edeceb;
