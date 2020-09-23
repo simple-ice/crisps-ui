@@ -6,7 +6,6 @@ import SwitchDemo from './components/demo/SwitchDemo.vue'
 import ButtonDemo from './components/demo/ButtonDemo.vue'
 import DialogDemo from './components/demo/DialogDemo.vue'
 import TabsDemo from './components/demo/TabsDemo.vue'
-import DocDemo from './components/demo/DocDemo.vue'
 
 import Markdown from './components/Markdown.vue';
 const history = createWebHashHistory()
@@ -19,7 +18,7 @@ export const router = createRouter({
     routes: [
         {path: '/', component: Home},
         {path: '/doc', component: Doc, children: [
-            {path: '', component: DocDemo},
+            {path: '', redirect: '/doc/introduce'},
             {path: 'introduce', component: md('introduce')},
             {path: 'install', component: md('install')},
             {path: 'get-started', component: md('get-started')},
