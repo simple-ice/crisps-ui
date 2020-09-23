@@ -4,7 +4,7 @@
         <Topnav />
         <div class="banner">
             <h1>薯片UI</h1>
-            <h2>一个普普通通的 UI 框架</h2>
+            <h2>一款 普普通通, 平平无奇 的 UI 框架</h2>
             <p class="actions">
                 <a href="https://github.com/simple-ice/crisps-ui">GitHub</a>
                 <router-link to="/doc">开始</router-link>
@@ -36,7 +36,6 @@
             </li>
         </ul>
     </div>
-
 </div>
 </template>
 
@@ -100,6 +99,10 @@ $border-radius: 8px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    >h2 {
+        margin: 20px 0;
+    }
 
     @media (max-width: 896px) {
         padding-top: 50px + (2.2 * 16px);
