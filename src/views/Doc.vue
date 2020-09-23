@@ -45,15 +45,57 @@
 import Topnav from "../components/Topnav.vue";
 import {
     inject,
-    Ref
+    onMounted,
+    onUnmounted,
+    provide,
+    reactive,
+    ref,
+    Ref,
+    watchEffect
 } from "vue";
+import {
+    router
+} from '../router';
+import {
+    debounce
+} from '../utils/debounce';
 export default {
     name: "Doc",
     components: {
         Topnav
     },
+
     setup() {
         const asideVisible = inject < Ref < boolean >> ("asideVisible");
+        const data = reactive({
+            listenerPageWidthFn: () => {},
+            pageWidth: document.documentElement.clientWidth
+        })
+
+        const watchPageWidth = () => {
+            const listenerPageWidth = debounce(() => {
+                data.pageWidth = document.documentElement.clientWidth;
+            }, 300);
+
+            window.addEventListener("resize", listenerPageWidth);
+
+            return listenerPageWidth;
+        };
+
+        watchEffect(() => {
+            if (data.pageWidth >= 896) {
+                asideVisible.value = true;
+            }
+        })
+
+        onMounted(() => {
+            data.listenerPageWidthFn = watchPageWidth();
+        })
+
+        onUnmounted(() => {
+            window.removeEventListener("resize", data.listenerPageWidthFn);
+        })
+
         return {
             asideVisible
         };
