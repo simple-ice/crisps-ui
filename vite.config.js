@@ -3,6 +3,7 @@ import fs from 'fs';
 import {baseParse} from '@vue/compiler-core';
 export default {
   plugins: [md()],
+  base: "/crisps-ui-website/",
   vueCustomBlockTransforms: {
     demo: (options) => {
       const { code, path } = options

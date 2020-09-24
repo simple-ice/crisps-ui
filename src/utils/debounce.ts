@@ -1,9 +1,9 @@
-export const debounce = (fn: (...arg) => void, delay: number) => {
+export const debounce = (fn: (...arg: any[]) => any, delay: number) => {
     let timer = NaN;
-    return (...args) => {
+    return (...args: any[]) => {
         clearTimeout(timer);
         timer = window.setTimeout(() => {
-            fn(args);
+            fn(...args);
         }, delay);
     }
 }
