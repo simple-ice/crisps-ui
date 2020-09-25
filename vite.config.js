@@ -4,6 +4,7 @@ import {baseParse} from '@vue/compiler-core';
 export default {
   plugins: [md()],
   base: "/crisps-ui-website/",
+  assetsDir: "assets",
   vueCustomBlockTransforms: {
     demo: (options) => {
       const { code, path } = options
