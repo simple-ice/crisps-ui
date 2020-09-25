@@ -124,6 +124,7 @@ $border-color: #d9d9d9;
 
             &.crisps-tabs-nav-disabled {
                 color: #ccc;
+                cursor: not-allowed;
             }
         }
 
