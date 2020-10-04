@@ -13,8 +13,7 @@
 import {
     ref
 } from 'vue';
-import Tab from '../../lib/Tab.vue';
-import Tabs from '../../lib/Tabs.vue';
+import {Tabs, Tab} from "../../lib/index";
 export default {
     components: {
         Tab,

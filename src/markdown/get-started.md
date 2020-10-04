@@ -4,7 +4,7 @@
 
 然后在你的项目中写入下面的代码：
 ```
-import {Button, Tabs, Switch, Dialog} from "crisps-ui";
+import {Button, Tabs, Tab, Switch, Dialog. openDialog} from "crisps-ui";
 ```
 就能使用该组件了。
 
@@ -12,12 +12,12 @@ import {Button, Tabs, Switch, Dialog} from "crisps-ui";
 代码示例：
 ```
 <template>
-  <div><Button>按钮</Button></div>
+  <Button>按钮</Button>
 </template>
 <script>
-  import {Button, Tabs, Switch, Dialog} from "crisps-ui";
+  import {Button, Tabs, Tab, Switch, Dialog. openDialog} from "crisps-ui";
   export default {
-    components: {Button}
+    components: {Button, Tabs, Tab, Switch, Dialog. openDialog}
   }
 </script>
 ```
