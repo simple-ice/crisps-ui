@@ -11,7 +11,7 @@ export default {
       vue: 'Vue'
     },
     name: 'Crisps',
-    file: 'dist/lib/Crisps.js',
+    file: 'dist/lib/crisps.js',
     format: 'umd',
     plugins: [terser()]
   },

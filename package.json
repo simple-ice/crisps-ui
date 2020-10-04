@@ -1,6 +1,8 @@
 {
   "name": "crisps-ui",
   "version": "0.0.1",
+  "files": ["dist/lib/*"],
+  "main": "dist/lib/crisps.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
