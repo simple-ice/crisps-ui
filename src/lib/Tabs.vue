@@ -51,6 +51,8 @@ export default {
                 } = selectedItem.value.getBoundingClientRect();
                 const left = resultLeft - containerLeft;
                 indicator.value.style.left = left + "px";
+            }, {
+                flush: 'post'
             });
         });
 
